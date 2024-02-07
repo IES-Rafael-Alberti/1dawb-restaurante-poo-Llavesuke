@@ -10,7 +10,7 @@ fun main() {
     val sistema = SistemaGestionRestaurante(mesas)
 
     // Creación de platos
-    val plato1 = Plato("Hamburguesa", 9.99, 8, mutableListOf("carne", "huevo", "queso", "pan", "tomate"))
+    val plato1 = Plato("Hamburguesa", -5.2, 8, mutableListOf("carne", "huevo", "queso", "pan", "tomate"))
     val plato2 = Plato("Ensalada", 7.99, 5, mutableListOf("lechuga", "tomate", "zanahoria", "maíz"))
     val plato3 = Plato("Tortilla", 5.99, 10, mutableListOf("huevo", "patata"))
     val plato4 = Plato("Serranito", 6.00, 4, mutableListOf("carne", "pimiento", "pan", "jamón serrano"))
