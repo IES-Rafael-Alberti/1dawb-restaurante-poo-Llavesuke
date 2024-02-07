@@ -29,15 +29,7 @@ class Plato(nombre: String, precio: Double, tiempoPreparacion: Int, ingredientes
                println(e.message)
            }
        }
-   private var ingredientes: MutableList<String> = mutableListOf()
-       set(value) {
-           try {
-               ingredientes.forEach { ingrediente -> comprobarIngrediente(ingrediente) }
-               field = value
-           } catch (e: IllegalArgumentException) {
-               println(e.message)
-           }
-       }
+   private val ingredientes: MutableList<String>
 
    init {
        this.nombre = nombre
@@ -59,16 +51,17 @@ class Plato(nombre: String, precio: Double, tiempoPreparacion: Int, ingredientes
         require(tiempoPreparacion <= 1) {"TIEMPO DE PREPARACION NO PUEDE SER 1 O INFERIOR"}
     }
 
-    private fun comprobarIngrediente(ingrediente: String){
-        require(ingrediente.isNotBlank()) {"INGREDIENTE VACIO"}
-    }
-
     //Metodos publicos
     fun agregarIngrediente(ingrediente: String){
-        val nuevosIngredientes = ingredientes
-        nuevosIngredientes.add(ingrediente)
-
-        ingredientes = nuevosIngredientes
+        try {
+            if (ingrediente.isNotBlank()) {
+                ingredientes.add(ingrediente)
+            } else {
+                throw IllegalArgumentException("INGREDIENTE NO PUEDE SER VACIO")
+            }
+        } catch (e: IllegalArgumentException){
+            println(e.message)
+        }
 
     }
 
