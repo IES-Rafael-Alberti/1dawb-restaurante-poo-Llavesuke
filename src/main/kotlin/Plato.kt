@@ -65,6 +65,13 @@ class Plato(nombre: String, precio: Double, tiempoPreparacion: Int, ingredientes
 
     }
 
+    fun obtenerNombrePlato(): String{
+        return this.nombre
+    }
+
+    fun obtenerPrecioPlato(): Double {
+        return this.precio
+    }
     override fun toString(): String {
         return "$nombre ($tiempoPreparacion min.) -> $precio€ (${ingredientes.dropLast(1).forEach { "$it, " }} y ${ingredientes.last()})"
     }

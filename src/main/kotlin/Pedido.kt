@@ -20,6 +20,30 @@ class Pedido(){
     }
 
     fun eliminarPlato(nombrePlato: String){
-        if (nombrePlato)
+        platos.forEach { plato ->
+            if (plato.obtenerNombrePlato() == nombrePlato){
+                platos.remove(plato)
+                println("Plato eliminado correctamente")
+            } else {
+                println("Plato no encontrado")
+            }
+        }
+    }
+
+    fun calcularPrecio(): Double {
+        var precioTotal = 0.0
+        platos.forEach { plato ->
+            precioTotal += plato.obtenerPrecioPlato()
+        }
+
+        return precioTotal
+    }
+
+    override fun toString(): String {
+        var pedido: String = ""
+
+        platos.forEach { plato -> pedido += println(plato) }
+
+        return pedido
     }
 }
